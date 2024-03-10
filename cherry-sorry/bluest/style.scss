@@ -1,0 +1,17 @@
+@use "../../styles/fn" as fn;
+@use "../../styles/common" as *;
+
+$stage-width: 1600px;
+$stage-height: 1066px;
+$bg-color: black;
+$navi-color: #ccc;
+
+$aspect: #{3 / 2};
+$duration: 1s;
+
+@include fn.body($bg-color);
+@include fn.navi($navi-color);
+@include fn.generate-stages(1, $aspect, $duration);
+
+@include fn.mobile-view($stage-width, 'bg-mobile.png', -40%, 0, unset);
+@include fn.desktop-view($stage-width, $stage-height, 'bg.png', 50%, 50%, unset);

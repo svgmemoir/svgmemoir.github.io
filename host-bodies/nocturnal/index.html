@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>nocturnal</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" href="../../gfx/favicon.ico">
+		<link rel="stylesheet" href="style.css">
+		<meta name="description" content="nocturnal">
+		<meta property="og:title" content="svg//memoir - nocturnal">
+		<meta property="og:description" content="nocturnal">
+		<meta property="og:type" content="website">
+		<meta property="og:image" content="https://svgmemoir.com/cherry-sorry/nocturnal/001a.png">
+		<meta property="og:url" content="https://svgmemoir.com/cherry-sorry/nocturnal">
+		<meta name="twitter:card" content="https://svgmemoir.com/cherry-sorry/nocturnal/001a.png">
+		<meta name="twitter:title" content="svg//memoir - nocturnal">
+		<meta name="twitter:description" content="nocturnal">
+		<meta name="twitter:image" content="https://svgmemoir.com/cherry-sorry/nocturnal/001a.png">
+	</head>
+	<body>
+		<div class="bg-x"></div>
+		<div class="navi">
+			<a href="../../index.html" class="back"></a>
+			<ul class="sessions">
+				<li class="session">
+					<a href="../privatekey/"></a>
+				</li>
+				<li class="session">
+					<a href="../limerence/"></a>
+				</li>
+				<li class="session here">
+					<a href="../nocturnal/">
+						<span>nocturnal</span>
+						<span>2020</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="stage-1 active" id="stage-1" onclick="toStage2()">
+			<img src="001a.png" class="image" id="stage1">
+		</div>
+		<div class="stage-2" id="stage-2" onclick="toStage3()">
+			<img src="002.png" class="image" id="stage2">
+		</div>
+		<div class="stage-3" id="stage-3" onclick="toStage1()">
+			<img src="003.png" class="image" id="stage3">
+		</div>
+		<div class="stages">
+			<div class="stage active" id="stage-nav-1" onclick="toStage1()"></div>
+			<div class="stage" id="stage-nav-2" onclick="toStage2()"></div>
+			<div class="stage" id="stage-nav-3" onclick="toStage3()"></div>
+		</div>
+		<script>
+			function toStage1() {
+			  toggleVisibility(["stage-2", "stage-3"], "stage-1");
+			  toggleActiveState(["stage-nav-2", "stage-nav-3"], "stage-nav-1");
+			}
+			function toStage2() {
+			  toggleVisibility(["stage-1", "stage-3"], "stage-2");
+			  toggleActiveState(["stage-nav-1", "stage-nav-3"], "stage-nav-2");
+			}
+			function toStage3() {
+			  toggleVisibility(["stage-1", "stage-2"], "stage-3");
+			  toggleActiveState(["stage-nav-1", "stage-nav-2"], "stage-nav-3");
+			}
+			function toggleVisibility(hideIds, showId) {
+			  hideIds.forEach(id => {
+				document.getElementById(id).classList.remove("active");
+			  });
+			  document.getElementById(showId).classList.add("active");
+			}
+		  
+			function toggleActiveState(deactivateIds, activateId) {
+			  deactivateIds.forEach(id => {
+				document.getElementById(id).classList.remove("active");
+			  });
+			  document.getElementById(activateId).classList.add("active");
+			}
+		  </script>
+	</body>
+</html>
+

@@ -1,0 +1,75 @@
+@use "../../styles/fn" as fn;
+@use "../../styles/common" as *;
+
+$stage-width: 1400px;
+$stage-height: 788px;
+$bg-color: black;
+$navi-color: #ccc;
+
+$aspect: #{16 / 9};
+$duration: 1s;
+
+@include fn.body($bg-color);
+@include fn.navi($navi-color);
+@include fn.generate-stages(3, $aspect, $duration);
+.stage-1, .stage-2{
+    .image{
+        transition: all ease-in-out $duration;
+    }
+}
+.stage-2{
+    width: 0;
+    transition: all ease-in-out $duration;
+    overflow: hidden;
+    opacity: 0;
+}
+@include fn.mobile-view($stage-width, 'none', -40%, 0, unset);
+@media (max-width: calc($stage-width - 1px)) {
+    .stage-1{
+        width: 100vw;
+    }
+    .stage-2{
+        left: 50vw;
+        width: 0;
+        .image{
+            margin-left: -50vw;
+        }
+        &.active{
+            width: 100vw;
+            left: 0;
+        }
+    }
+    .active{
+        width: 100vw;
+        opacity: 1;
+        .image{
+            width: 100vw;
+            margin-left: 0;
+        }
+    }
+}
+@include fn.desktop-view($stage-width, $stage-height, 'bg.png', 50%, 50%, 0);
+@media (min-width:$stage-width) {
+    .stage-1{
+        width: $stage-width;
+        .image{
+            width: $stage-width;
+            height: $stage-height;
+        }
+    }
+    .stage-2{
+        position: absolute;
+        margin-left: 0;
+        .image{
+            left: calc(-#{$stage-width} / 2);
+        }
+    }
+    .active{
+        width: $stage-width;
+        margin-left: calc(-#{$stage-width} / 2);
+        opacity: 1;
+        .image{
+            left: 0;
+        }
+    }
+}

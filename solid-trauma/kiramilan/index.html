@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>kira/milan</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" href="../../gfx/favicon.ico">
+		<link rel="stylesheet" href="style.css">
+		<meta name="description" content="kira/milan">
+		<meta property="og:title" content="svg//memoir - kira/milan">
+		<meta property="og:description" content="kira/milan">
+		<meta property="og:type" content="website">
+		<meta property="og:image" content="https://svgmemoir.com/solid-trauma/kiramilan/3e.png">
+		<meta property="og:url" content="https://svgmemoir.com/solid-trauma/kiramilan">
+		<meta name="twitter:card" content="https://svgmemoir.com/solid-trauma/kiramilan/3e.png">
+		<meta name="twitter:title" content="svg//memoir - kira/milan">
+		<meta name="twitter:description" content="kira/milan">
+		<meta name="twitter:image" content="https://svgmemoir.com/solid-trauma/kiramilan/3e.png">
+	</head>
+	<body>
+		<div class="bg-x"></div>
+		<div class="navi">
+			<a href="../../index.html" class="back"></a>
+			<ul class="sessions">
+				<li class="session"><a href="../myxenic/"></a></li>
+				<li class="session"><a href="../mia/"></a></li>
+				<li class="session"><a href="../boltofblue/"></a></li>
+				<li class="session"><a href="../urbanangel/"></a>
+				</li>
+				<li class="session here">
+					<a href="../kiramilan/">
+						<span>kira/milan</span>
+						<span>2006</span>
+					</a>
+				</li>
+				<li class="session"><a href="../clubbizarre/"></a></li>
+				<li class="session"><a href="../cryo/"></a></li>
+			</ul>
+		</div>
+		<div class="stage-1 active" id="stage-1" onclick="toStage2()">
+			<img src="2d.png" class="image" id="stage1">
+		</div>
+		<div class="stage-2" id="stage-2" onclick="toStage3()">
+			<img src="3e.png" class="image" id="stage2">
+		</div>
+		<div class="stage-3" id="stage-3" onclick="toStage1()">
+			<img src="6a.png" class="image" id="stage3">
+		</div>
+		<div class="stages">
+			<div class="stage active" id="stage-nav-1" onclick="toStage1()"></div>
+			<div class="stage" id="stage-nav-2" onclick="toStage2()"></div>
+			<div class="stage" id="stage-nav-3" onclick="toStage3()"></div>
+		</div>
+		<script>
+			function toStage1() {
+			  toggleVisibility(["stage-2", "stage-3"], "stage-1");
+			  toggleActiveState(["stage-nav-2", "stage-nav-3"], "stage-nav-1");
+			}
+			function toStage2() {
+			  toggleVisibility(["stage-1", "stage-3"], "stage-2");
+			  toggleActiveState(["stage-nav-1", "stage-nav-3"], "stage-nav-2");
+			}
+			function toStage3() {
+			  toggleVisibility(["stage-1", "stage-2"], "stage-3");
+			  toggleActiveState(["stage-nav-1", "stage-nav-2"], "stage-nav-3");
+			}
+			function toggleVisibility(hideIds, showId) {
+			  hideIds.forEach(id => {
+				document.getElementById(id).classList.remove("active");
+			  });
+			  document.getElementById(showId).classList.add("active");
+			}
+		  
+			function toggleActiveState(deactivateIds, activateId) {
+			  deactivateIds.forEach(id => {
+				document.getElementById(id).classList.remove("active");
+			  });
+			  document.getElementById(activateId).classList.add("active");
+			}
+		  </script>
+	</body>
+</html>
+

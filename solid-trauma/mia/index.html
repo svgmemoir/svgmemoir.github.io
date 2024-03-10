@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>m:ai | m:ia</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="style.css">
+	<meta name="description" content="m:ia | m:ia">
+	<meta property="og:title" content="svg//memoir - m:ia | m:ia">
+	<meta property="og:description" content="m:ia | m:ia">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://svgmemoir.com/solid-trauma/mia/003a.png">
+	<meta property="og:url" content="https://svgmemoir.com/solid-trauma/mia">
+	<meta name="twitter:card" content="https://svgmemoir.com/solid-trauma/mia/003a.png">
+	<meta name="twitter:title" content="svg//memoir - m:ia | m:ia">
+	<meta name="twitter:description" content="m:ia | m:ia">
+	<meta name="twitter:image" content="https://svgmemoir.com/solid-trauma/mia/003a.png">
+	</head>
+	<body>
+		<div class="bg-x"></div>
+		<div class="navi">
+			<a href="../../index.html" class="back"></a>
+			<ul class="sessions">
+				<li class="session"><a href="../myxenic/"></a></li>
+				<li class="session here">
+					<a href="../mia/">
+						<span>m:ai | m:ia</span>
+						<span>2004</span>
+					</a>
+				</li>
+				<li class="session"><a href="../boltofblue/"></a></li>
+				<li class="session"><a href="../urbanangel/"></a></li>
+				<li class="session"><a href="../kiramilan/"></a></li>
+				<li class="session"><a href="../clubbizarre/"></a></li>
+				<li class="session"><a href="../cryo/"></a></li>
+			</ul>
+		</div>
+		<div class="stage-1 active" id="stage-1" onclick="toStage2()">
+			<img src="003a.png" class="image" id="stage1">
+		</div>
+		<div class="stage-2" id="stage-2" onclick="toStage1()">
+			<img src="004a.png" class="image" id="stage2">
+		</div>
+		<div class="stages">
+			<div class="stage active" id="stage-nav-1" onclick="toStage1()"></div>
+			<div class="stage" id="stage-nav-2" onclick="toStage2()"></div>
+		</div>
+		<script>
+			function toStage2() {
+			  toggleVisibility("stage-1", "stage-2");
+			  toggleActiveState("stage-nav-1", "stage-nav-2");
+			}
+			function toStage1() {
+			  toggleVisibility("stage-2", "stage-1");
+			  toggleActiveState("stage-nav-2", "stage-nav-1");
+			}
+			function toggleVisibility(hideId, showId) {
+			  document.getElementById(hideId).classList.remove("active");
+			  document.getElementById(showId).classList.add("active");
+			}
+			function toggleActiveState(deactivateId, activateId) {
+			  document.getElementById(deactivateId).classList.remove("active");
+			  document.getElementById(activateId).classList.add("active");
+			}
+		  </script>
+	</body>
+</html>
+

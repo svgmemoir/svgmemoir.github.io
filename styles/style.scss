@@ -1,0 +1,123 @@
+@use "common" as *;
+body{
+    background-color: black;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul, li{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+@keyframes widen {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+.nav{
+    width: 100%;
+    // border:1px solid blue;
+    margin-bottom: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.topSection{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 330px;
+    height: 300px;
+    margin: 100px 0 100px 0;
+    .gfx__logo{
+        position: absolute;
+        top: 0;
+        right: 22px;
+        height: 250px;
+    }
+}
+.cont__solid-trauma, .cont__cherry-sorry, .cont__host-bodies{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 330px;
+    height: 400px;
+    .insignia{
+        position: relative;
+        width:100px;
+        padding: 0 20px;
+    }
+    .menu{
+        height:100%;
+        min-width:150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+        li{
+            height:100%;
+            cursor: pointer;
+            animation: widen 2s ease-in-out forwards;
+            animation-delay: calc(0.1s * var(--i));
+            &:hover{
+                opacity: 1;
+                &:before{
+                    transition: 0.5s;
+                    opacity: 1;
+                    box-shadow: 0 0 30px 5px white;
+                }
+            }
+            &:before{
+                content: "";
+                position: relative;
+                display: block;
+                top: 50%;
+                width: 100%;
+                border-top: 1px solid #fff;
+                opacity: 0.5;
+            }
+            a{
+                position: relative;
+                float: left;
+                width: 100%;
+                height: 100%;
+            }
+
+        }
+    }
+    .timeline{
+        position: relative;
+        width: 80px;
+    }
+}
+.cont__solid-trauma{
+    .insignia{
+        top: 10px;
+    }
+    .timeline{
+        top: -61px;
+    } 
+}
+.cont__cherry-sorry{
+    .insignia{
+        top: 25px;
+    }
+    .timeline{
+        top: -40px;
+    } 
+}
+.cont__host-bodies{
+    .insignia{
+        top: 50px;
+    }
+    .timeline{
+        top: -23px;
+    }  
+}

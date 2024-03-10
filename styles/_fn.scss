@@ -1,0 +1,175 @@
+// $stageWidth: (
+//     limerence: 1650px,
+//     nocturnal: 2280px,
+//     privatekey: 1300px,
+// );
+
+@mixin generate-stages($value, $aspect, $duration) {
+    @for $i from 1 through $value {
+      .stage-#{$i} {
+            position: absolute;
+            display: flex;
+            z-index: 10;
+            opacity: 0;
+            @if $value != 1 {
+                transition: all ease-in-out $duration;
+            }
+            pointer-events: none;
+            aspect-ratio: $aspect;
+            .image{
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                @if $value != 1 {
+                    cursor: pointer;
+                }
+                // aspect-ratio: $aspect;
+            }
+            &.active{
+                opacity: 1;
+                pointer-events: visible;
+            }
+        }
+    }
+}
+
+@mixin mobile-view($stage-width, $bg, $posY, $left, $right, $type:null){
+    @media (max-width: calc($stage-width - 1px)) {
+        // body{
+        //     @if $bg == 'none' {
+        //         background-image: none;
+        //     } @else {
+        //         background-image: url($bg);
+        //     }
+        // }
+        .bg-x{
+            @if $bg == 'none' {
+                // background-image: none;
+                display: none;
+            } @else {
+                background-image: url($bg);
+                display: block;
+                // border:1px solid blue;
+            }
+        }
+        .stage-1, .stage-2, .stage-3{
+            top: 0;
+            left: $left;
+            right: $right;
+            height: 100vh;
+            width: 100vw;
+            .image{
+                width: 100vw;
+                top: 50%;
+                transform: translateY($posY);
+            }
+        }
+        @if $type == 'slide'{
+            .stage-1{
+                width: 100vw;
+            }
+            .stage-2{
+                width: 0;
+            }
+            .active{
+                width: 100vw;
+            }
+        }
+    }
+};
+
+@mixin desktop-view($stage-width, $stage-height, $bg, $top, $left, $right, $type:null){
+    @media (min-width:$stage-width) {
+        // body, .bg-x{
+        //     @if $bg == 'none' {
+        //         background-image: none;
+        //     } @else {
+        //         background-image: url($bg);
+        //     }
+        // }
+        .bg-x{
+            @if $bg == 'none' {
+                // background-image: none;
+                display: none;
+            } @else {
+                background-image: url($bg);
+                display: block;
+                // border:1px solid red;
+            }
+        }
+        .bg-x{ display: block; }
+        .stage-1, .stage-2, .stage-3{
+            top: $top;
+            left: $left;
+            right: $right;
+            height: $stage-height;
+            margin-top: calc(-#{$stage-height} / 2);
+            @if $left != unset{
+                margin-left: calc(-#{$stage-width} / 2);
+            }
+            .image{
+                width: $stage-width;
+                height: $stage-height;
+            }
+        }
+        @if $type == 'slide'{
+            .stage-1{
+                width: $stage-width;
+            }
+            .active{
+                width: $stage-width;
+            }
+        }
+    }
+};
+
+@mixin body($bg-color){
+    body{
+        background-color: $bg-color;
+        margin: 0px;
+        padding: 0px;
+        width: 100vw;
+        height: 100vh;
+        font-size: 10px;
+        overflow-x: hidden;
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 300;
+        font-style: normal;
+    }
+    .bg-x{
+        position: absolute;
+        background-position-y: center;
+        background-repeat: repeat-x;   
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;        
+        z-index: -10;
+    }
+}
+
+@mixin navi($navi-color, $navi-opacity:0.3){
+    .back{
+        &:before{
+            background-color: $navi-color;
+        }
+    }
+    .session{
+        opacity: $navi-opacity;
+        border-left-color: $navi-color;
+        color: $navi-color;
+        a{
+            color: $navi-color;  
+        }
+        &:before{
+            border-left-color: $navi-color;
+        }
+    }
+    .stage{
+        opacity: $navi-opacity;
+        &:before{
+            border-left-color: $navi-color;
+            border-top-color: $navi-color;
+        }
+    }
+}

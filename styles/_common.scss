@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap');
+*{
+    box-sizing: border-box;
+}
+$nav-height: 30px;
+$nav-width: 30px;
+ul, li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+html{
+    scrollbar-color: #555 transparent;
+    scrollbar-width: thin;
+}
+._before-indicator{
+    content: "";
+    position: absolute;
+    top:0;
+    left: 50%;
+    width: 1px;
+    height: 100%;
+    border-left-width: 1px;
+    border-left-style: solid;
+}
+.navi{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    display: flex;
+    z-index: 100;
+    .back{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: $nav-height;
+        width: 50px;
+        text-decoration: none;
+        z-index: 101;
+        &:before{
+            content: "";
+            display: block;
+            position: absolute;
+            top: 50%;
+            lefT: 0;
+            width: 100%;
+            height: 1px;
+        }
+    }
+    @media only screen and (max-width: 768px) and (orientation: portrait) {
+        .sessions{
+            .session{
+                width: $nav-width !important;
+                &.here{
+                    a{
+                        top: calc(#{$nav-height} + 5px);
+                        padding-left: 50%;
+                     }
+                    //  .stages{
+                    //     position: absolute;
+                    //     top: 70px;
+                    //     // width: 100px;
+                    //     .stage{
+                    //         min-width: $nav-width; 
+                    //         &:before{
+                    //             padding-left: 50%;
+                    //         }
+                    //     }
+                    // }
+                }
+            }
+        }
+    }
+    .sessions{
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-around;
+        padding: 0 50px;
+        .session{
+            position: relative;
+            height: $nav-height;
+            width: 80px;
+            padding: 0 0 0 0;
+            text-decoration: none;
+            list-style: none;
+            &:before{
+                @extend ._before-indicator;
+            }
+            &.here{
+                opacity: 1;
+                span{
+                    display: flex;
+                    width: 100%;
+                }
+            }
+            // .stages{
+            //     position: relative;
+            //     float: left;
+            //     top: calc(#{$nav-height} + 5px);
+            //     left: 50%;
+            //     width: 100%;
+            //     height: $nav-height;
+            //     margin-left: -20px;
+            //     display: flex;
+            //     align-items: flex-start;
+            //     justify-content: space-between;
+            //     white-space: nowrap;
+            //     .stage{
+            //         position: relative;
+            //         float: left;
+            //         height: $nav-height;
+            //         display: flex;
+            //         justify-content: space-around;
+            //         width: fit-content;
+            //         width: 40px;
+            //         cursor: pointer;
+            //         &:before{
+            //             @extend ._before-indicator;
+            //         }
+            //     }
+            // }
+            a{
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                padding-left: calc(50% + 5px);
+                width: 100%;
+                height: 100%;
+                font-size: 13px;
+                white-space: nowrap;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.stages{
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    z-index: 101;
+    display: flex;
+    flex-direction: row;
+    transform: translateX(-50%);
+    .stage{
+        width: 60px;
+        height: 10px;
+        margin:0 5px;
+        cursor: pointer;
+        transition: all ease 0.5s;
+        &:before{
+            content: "";
+            display: block;
+            position: relative;
+            top: 50%;
+            width: 100%;
+            border-top-style: solid;
+            border-top-width: 1px;
+        }
+        &.active{
+            opacity: 1;
+            
+        }
+    }
+}

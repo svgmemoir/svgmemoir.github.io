@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1200px, initial-scale=1.0">
+    <title>svg//memoir</title>
+    <link rel="stylesheet" href="styles/style-alt.css">
+</head>
+<body>
+    <div class="nav">
+        <img src="gfx/cross.svg" alt="" class="gfx__cross">
+        <img src="gfx/circle-s.svg" alt="" class="gfx__circle-s">
+        <img src="gfx/circle-w.svg" alt="" class="gfx__circle-w">
+        <img src="gfx/circle-n.svg" alt="" class="gfx__circle-n">
+        <img src="gfx/hex.svg" alt="" class="gfx__hex">
+        <img src="gfx/diamond.svg" alt="" class="gfx__diamond">
+        <img src="gfx/triangle.svg" alt="" class="gfx__triangle">
+        <img src="gfx/logo.svg" alt="svg//memoir" class="gfx__logo">
+        <div class="cont__solid-trauma">
+            <img src="gfx/solid-trauma.svg" alt="solid trauma" class="solid-trauma toggle">
+
+            <ul class="menu__solid-trauma">
+                <li style="--i:0;">
+                    <a href="solid-trauma/myxenic/"></a>
+                </li>
+                <li style="--i:1;">
+                    <a href="solid-trauma/mia/"></a>
+                </li>
+                <li style="--i:2;">
+                    <a href="solid-trauma/boltofblue/"></a>
+                </li>
+                <li style="--i:3;">
+                    <a href="solid-trauma/urbanangel/"></a>
+                </li>
+                <li style="--i:4;">
+                    <a href="solid-trauma/kiramilan/"></a>
+                </li>
+                <li style="--i:5;">
+                    <a href="solid-trauma/clubbizarre/"></a>
+                </li>
+                <li style="--i:6;">
+                    <a href="solid-trauma/cryo/"></a>
+                </li>
+            </ul>
+
+        </div>
+        <div class="cont__cherry-sorry">
+            <img src="gfx/cherry-sorry.svg" alt="cherry sorry" class="cherry-sorry toggle2">
+
+            <ul class="menu__cherry-sorry">
+                <li style="--i:0;">
+                    <a href="cherry-sorry/miuhotel/"></a>
+                </li>
+                <li style="--i:1;">
+                    <a href="cherry-sorry/bluest/"></a>
+                </li>
+                <li style="--i:2;">
+                    <a href="cherry-sorry/avenivenda/"></a>
+                </li>
+                <li style="--i:3;">
+                    <a href="cherry-sorry/freedna/"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="cont__host-bodies">
+            <img src="gfx/host-bodies.svg" alt="host bodies" class="host-bodies toggle3">
+
+            <ul class="menu__host-bodies">
+                <li style="--i:0;">
+                    <a href="host-bodies/limerence/"></a>
+                </li>
+                <li style="--i:1;">
+                    <a href="host-bodies/privatekey/"></a>
+                </li>
+                <li style="--i:2;">
+                    <a href="host-bodies/nocturnal/"></a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+    <script>
+        let solidTrauma = document.querySelector('.solid-trauma');
+        let menuSolidTrauma = document.querySelector('.menu__solid-trauma');
+        solidTrauma.onclick = function(){
+            menuSolidTrauma.classList.toggle('active');
+        }
+      
+        let cherrySorry = document.querySelector('.cherry-sorry');
+        let menuCherrySorry = document.querySelector('.menu__cherry-sorry');
+        cherrySorry.onclick = function(){
+            menuCherrySorry.classList.toggle('active');
+        }
+
+        let hostBodies = document.querySelector('.host-bodies');
+        let menuHostBodies = document.querySelector('.menu__host-bodies');
+        hostBodies.onclick = function(){ 
+            menuHostBodies.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

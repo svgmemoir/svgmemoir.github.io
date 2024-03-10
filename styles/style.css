@@ -1,0 +1,249 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scrollbar-color: #555 transparent;
+  scrollbar-width: thin;
+}
+
+._before-indicator, .navi .sessions .session:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 100%;
+  border-left-width: 1px;
+  border-left-style: solid;
+}
+
+.navi {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  z-index: 100;
+}
+.navi .back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 50px;
+  text-decoration: none;
+  z-index: 101;
+}
+.navi .back:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  lefT: 0;
+  width: 100%;
+  height: 1px;
+}
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+  .navi .sessions .session {
+    width: 30px !important;
+  }
+  .navi .sessions .session.here a {
+    top: calc(30px + 5px);
+    padding-left: 50%;
+  }
+}
+.navi .sessions {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  padding: 0 50px;
+}
+.navi .sessions .session {
+  position: relative;
+  height: 30px;
+  width: 80px;
+  padding: 0 0 0 0;
+  text-decoration: none;
+  list-style: none;
+}
+.navi .sessions .session.here {
+  opacity: 1;
+}
+.navi .sessions .session.here span {
+  display: flex;
+  width: 100%;
+}
+.navi .sessions .session a {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-left: calc(50% + 5px);
+  width: 100%;
+  height: 100%;
+  font-size: 13px;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.stages {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  z-index: 101;
+  display: flex;
+  flex-direction: row;
+  transform: translateX(-50%);
+}
+.stages .stage {
+  width: 60px;
+  height: 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: all ease 0.5s;
+}
+.stages .stage:before {
+  content: "";
+  display: block;
+  position: relative;
+  top: 50%;
+  width: 100%;
+  border-top-style: solid;
+  border-top-width: 1px;
+}
+.stages .stage.active {
+  opacity: 1;
+}
+
+body {
+  background-color: black;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul, li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@keyframes widen {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+.nav {
+  width: 100%;
+  margin-bottom: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.topSection {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 330px;
+  height: 300px;
+  margin: 100px 0 100px 0;
+}
+.topSection .gfx__logo {
+  position: absolute;
+  top: 0;
+  right: 22px;
+  height: 250px;
+}
+
+.cont__solid-trauma, .cont__cherry-sorry, .cont__host-bodies {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 330px;
+  height: 400px;
+}
+.cont__solid-trauma .insignia, .cont__cherry-sorry .insignia, .cont__host-bodies .insignia {
+  position: relative;
+  width: 100px;
+  padding: 0 20px;
+}
+.cont__solid-trauma .menu, .cont__cherry-sorry .menu, .cont__host-bodies .menu {
+  height: 100%;
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.cont__solid-trauma .menu li, .cont__cherry-sorry .menu li, .cont__host-bodies .menu li {
+  height: 100%;
+  cursor: pointer;
+  animation: widen 2s ease-in-out forwards;
+  animation-delay: calc(0.1s * var(--i));
+}
+.cont__solid-trauma .menu li:hover, .cont__cherry-sorry .menu li:hover, .cont__host-bodies .menu li:hover {
+  opacity: 1;
+}
+.cont__solid-trauma .menu li:hover:before, .cont__cherry-sorry .menu li:hover:before, .cont__host-bodies .menu li:hover:before {
+  transition: 0.5s;
+  opacity: 1;
+  box-shadow: 0 0 30px 5px white;
+}
+.cont__solid-trauma .menu li:before, .cont__cherry-sorry .menu li:before, .cont__host-bodies .menu li:before {
+  content: "";
+  position: relative;
+  display: block;
+  top: 50%;
+  width: 100%;
+  border-top: 1px solid #fff;
+  opacity: 0.5;
+}
+.cont__solid-trauma .menu li a, .cont__cherry-sorry .menu li a, .cont__host-bodies .menu li a {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+.cont__solid-trauma .timeline, .cont__cherry-sorry .timeline, .cont__host-bodies .timeline {
+  position: relative;
+  width: 80px;
+}
+
+.cont__solid-trauma .insignia {
+  top: 10px;
+}
+.cont__solid-trauma .timeline {
+  top: -61px;
+}
+
+.cont__cherry-sorry .insignia {
+  top: 25px;
+}
+.cont__cherry-sorry .timeline {
+  top: -40px;
+}
+
+.cont__host-bodies .insignia {
+  top: 50px;
+}
+.cont__host-bodies .timeline {
+  top: -23px;
+}/*# sourceMappingURL=style.css.map */

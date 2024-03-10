@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>private key</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" href="../../gfx/favicon.ico">
+		<link rel="stylesheet" href="style.css">
+		<meta name="description" content="private key">
+		<meta property="og:title" content="svg//memoir - private key">
+		<meta property="og:description" content="private key">
+		<meta property="og:type" content="website">
+		<meta property="og:image" content="https://svgmemoir.com/cherry-sorry/privatekey/expr2.png">
+		<meta property="og:url" content="https://svgmemoir.com/cherry-sorry/privatekey">
+		<meta name="twitter:card" content="https://svgmemoir.com/cherry-sorry/privatekey/expr2.png">
+		<meta name="twitter:title" content="svg//memoir - private key">
+		<meta name="twitter:description" content="private key">
+		<meta name="twitter:image" content="https://svgmemoir.com/cherry-sorry/privatekey/expr2.png">
+	</head>
+	<body>
+		<div class="bg-x"></div>
+		<div class="navi">
+			<a href="../../index.html" class="back"></a>
+			<ul class="sessions">
+				<li class="session here">
+					<a href="../privatekey/">
+						<span>private key</span>
+						<span>2014</span>
+					</a>
+				</li>
+				<li class="session">
+					<a href="../limerence/"></a>
+				</li>
+				<li class="session">
+					<a href="../nocturnal/"></a>
+				</li>
+			</ul>
+		</div>
+		<div class="stage-1 active" id="stage-1" onclick="toStage2()">
+			<img src="expr2.png" class="image" id="stage1">
+		</div>
+		<div class="stage-2" id="stage-2" onclick="toStage1()">
+			<img src="expr3.png" class="image" id="stage2">
+		</div>
+		<div class="stages">
+			<div class="stage active" id="stage-nav-1" onclick="toStage1()"></div>
+			<div class="stage" id="stage-nav-2" onclick="toStage2()"></div>
+		</div>
+		<script>
+			function toStage2() {
+			  toggleVisibility("stage-1", "stage-2");
+			  toggleActiveState("stage-nav-1", "stage-nav-2");
+			}
+			function toStage1() {
+			  toggleVisibility("stage-2", "stage-1");
+			  toggleActiveState("stage-nav-2", "stage-nav-1");
+			}
+			function toggleVisibility(hideId, showId) {
+			  document.getElementById(hideId).classList.remove("active");
+			  document.getElementById(showId).classList.add("active");
+			}
+			function toggleActiveState(deactivateId, activateId) {
+			  document.getElementById(deactivateId).classList.remove("active");
+			  document.getElementById(activateId).classList.add("active");
+			}
+		  </script>
+	</body>
+</html>
+

@@ -1,0 +1,272 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scrollbar-color: #555 transparent;
+  scrollbar-width: thin;
+}
+
+._before-indicator, .navi .sessions .session:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 100%;
+  border-left-width: 1px;
+  border-left-style: solid;
+}
+
+.navi {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  z-index: 100;
+}
+.navi .back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 50px;
+  text-decoration: none;
+  z-index: 101;
+}
+.navi .back:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  lefT: 0;
+  width: 100%;
+  height: 1px;
+}
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+  .navi .sessions .session {
+    width: 30px !important;
+  }
+  .navi .sessions .session.here a {
+    top: calc(30px + 5px);
+    padding-left: 50%;
+  }
+}
+.navi .sessions {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  padding: 0 50px;
+}
+.navi .sessions .session {
+  position: relative;
+  height: 30px;
+  width: 80px;
+  padding: 0 0 0 0;
+  text-decoration: none;
+  list-style: none;
+}
+.navi .sessions .session.here {
+  opacity: 1;
+}
+.navi .sessions .session.here span {
+  display: flex;
+  width: 100%;
+}
+.navi .sessions .session a {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-left: calc(50% + 5px);
+  width: 100%;
+  height: 100%;
+  font-size: 13px;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.stages {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  z-index: 101;
+  display: flex;
+  flex-direction: row;
+  transform: translateX(-50%);
+}
+.stages .stage {
+  width: 60px;
+  height: 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: all ease 0.5s;
+}
+.stages .stage:before {
+  content: "";
+  display: block;
+  position: relative;
+  top: 50%;
+  width: 100%;
+  border-top-style: solid;
+  border-top-width: 1px;
+}
+.stages .stage.active {
+  opacity: 1;
+}
+
+body {
+  background-color: #1a1a1a;
+  margin: 0px;
+  padding: 0px;
+  width: 100vw;
+  height: 100vh;
+  font-size: 10px;
+  overflow-x: hidden;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.bg-x {
+  position: absolute;
+  background-position-y: center;
+  background-repeat: repeat-x;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+}
+
+.back:before {
+  background-color: #ccc;
+}
+
+.session {
+  opacity: 0.3;
+  border-left-color: #ccc;
+  color: #ccc;
+}
+.session a {
+  color: #ccc;
+}
+.session:before {
+  border-left-color: #ccc;
+}
+
+.stage {
+  opacity: 0.3;
+}
+.stage:before {
+  border-left-color: #ccc;
+  border-top-color: #ccc;
+}
+
+.stage-1 {
+  position: absolute;
+  display: flex;
+  z-index: 10;
+  opacity: 0;
+  transition: all ease-in-out 1s;
+  pointer-events: none;
+  aspect-ratio: 3/2;
+}
+.stage-1 .image {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  cursor: pointer;
+}
+.stage-1.active {
+  opacity: 1;
+  pointer-events: visible;
+}
+
+.stage-2 {
+  position: absolute;
+  display: flex;
+  z-index: 10;
+  opacity: 0;
+  transition: all ease-in-out 1s;
+  pointer-events: none;
+  aspect-ratio: 3/2;
+}
+.stage-2 .image {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  cursor: pointer;
+}
+.stage-2.active {
+  opacity: 1;
+  pointer-events: visible;
+}
+
+.stage-3 {
+  position: absolute;
+  display: flex;
+  z-index: 10;
+  opacity: 0;
+  transition: all ease-in-out 1s;
+  pointer-events: none;
+  aspect-ratio: 3/2;
+}
+.stage-3 .image {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  cursor: pointer;
+}
+.stage-3.active {
+  opacity: 1;
+  pointer-events: visible;
+}
+
+@media (max-width: 1151px) {
+  .bg-x {
+    display: none;
+  }
+  .stage-1, .stage-2, .stage-3 {
+    top: 0;
+    left: 0;
+    right: unset;
+    height: 100vh;
+    width: 100vw;
+  }
+  .stage-1 .image, .stage-2 .image, .stage-3 .image {
+    width: 100vw;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+@media (min-width: 1152px) {
+  .bg-x {
+    background-image: url("bg.png");
+    display: block;
+  }
+  .bg-x {
+    display: block;
+  }
+  .stage-1, .stage-2, .stage-3 {
+    top: 50%;
+    left: unset;
+    right: 0;
+    height: 768px;
+    margin-top: calc(-768px / 2);
+  }
+  .stage-1 .image, .stage-2 .image, .stage-3 .image {
+    width: 1152px;
+    height: 768px;
+  }
+}/*# sourceMappingURL=style.css.map */

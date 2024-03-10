@@ -1,0 +1,259 @@
+body{
+    background-color: black;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+$cross-height: 124px;
+$circle-s--d: 310px;
+$circle-s--vloc: calc((-#{$circle-s--d} / 2) + (#{$cross-height} / 2));
+$circle-w--d: 319px;
+$circle-w--hloc: calc((-#{$circle-w--d} / 2) + (#{$cross-height} / 2));
+$circle-n--d: 496px;
+$circle-n--hloc: calc((-#{$circle-n--d} / 2) + (#{$cross-height} / 2));
+
+$cross--duration: 2;
+$common-opacity: 0.7;
+
+@mixin anima(
+    $name,
+    $from-scale, $to-scale,
+    $from-rotate, $to-rotate,
+    $duration, $timing-function,
+    $from-opacity, $to-opacity,
+    $delay
+    ) {
+    @keyframes #{$name} {
+        from {
+            transform: rotate(#{$from-rotate}deg) scale($from-scale);
+
+            opacity: $from-opacity;
+        }
+        to {
+            transform: rotate(#{$to-rotate}deg) scale($to-scale);
+            opacity: $to-opacity;
+        }
+    }
+    animation: #{$name} $duration $timing-function forwards;
+    animation-delay: $delay;
+}
+
+.nav{
+    position: absolute;
+    top:50%;
+    margin-top: calc(-744px / 2);
+    left:50%;
+    margin-left: calc(-744px / 2);
+    width: 744px;
+    height: 744px;
+    .gfx__cross{
+        width: 744px;
+        height: 744px;
+        opacity: 0;
+        @include anima('appear', 1, 1, 0, 0, #{$cross--duration}s, ease-in-out, 0, #{$common-opacity}, 0);
+    }
+    .gfx__circle-s{
+        width: $circle-s--d;
+        height: $circle-s--d;
+        position: absolute;
+        bottom: $circle-s--vloc;
+        left: 50%;
+        margin-left: calc(-#{$circle-s--d} / 2);
+        transform: scale(0);
+        @include anima('circle-s', 0, 1, 0, 0, 5s, ease-in-out, 0, #{$common-opacity}, 3.5s);
+    }
+    .gfx__circle-w{
+        width: $circle-w--d;
+        height: $circle-w--d;
+        position: absolute;
+        top: 50%;
+        margin-top: calc(-#{$circle-w--d} / 2);
+        left: 0;
+        margin-left: $circle-w--hloc;
+        transform: scale(0);
+        @include anima('circle-w', 0, 1, 0, 0, 5s, ease-in-out, 0, #{$common-opacity}, 2.5s);
+    }
+    .gfx__circle-n{
+        width: $circle-n--d;
+        height: $circle-n--d;
+        position: absolute;
+        top: $circle-n--hloc;
+        left: 50%;
+        margin-left: calc(-#{$circle-n--d} / 2);
+        transform: scale(0);
+        @include anima('circle-n', 0, 1, 0, 0, 5s, ease-in-out, 0, #{$common-opacity}, 3s);
+    }
+    .gfx__hex{
+        width: 550px;
+        height: 620px;
+        position: absolute;
+        top: calc(#{$cross-height} / 2);
+        left: 50%;
+        margin-left: calc(-550px / 2);
+        opacity: 0;
+        @include anima('hex', 1, 1, 30, 0, 3s, ease-in-out, 0, #{$common-opacity}, 1.5s);
+    }
+    .gfx__diamond{
+        width: 620px;
+        height: 620px;
+        position: absolute;
+        top: calc(#{$cross-height} / 2);
+        left: calc(#{$cross-height} / 2);
+        opacity: 0;
+        @include anima('diamond', 1, 1, -30, 0, 3s, ease-in-out, 0, #{$common-opacity}, 1s);
+    }
+    .gfx__triangle{
+        width: 550px;
+        height: 465px;
+        position: absolute;
+        top: calc(#{$cross-height} / 2);
+        left: 50%;
+        margin-left: calc(-550px / 2);
+        opacity: 0;
+        @include anima('triangle', 1, 1, 10, 0, 3s, ease-in-out, 0, #{$common-opacity}, 2s);
+    }
+}
+.gfx__logo{
+    position: absolute;
+    top: 500px;
+    right: calc(-257px + (#{$cross-height} / 2));
+    width: 257px;
+    opacity: 0;
+    @include anima('logo', 1, 1, 0, 0, 5s, ease-in-out, 0, 1, 5s);
+}
+.cont__solid-trauma, .cont__cherry-sorry, .cont__host-bodies{
+    position: absolute;
+
+}
+.solid-trauma, .cherry-sorry, .host-bodies{
+    position: absolute;
+    opacity: 0;
+    z-index: 10;
+    cursor: pointer;
+}
+.cont__solid-trauma{
+    left: 50%;
+    top: calc(#{$cross-height} / 2);
+    .solid-trauma{
+        width: 150px;
+        left: 50%;
+        margin-left: -75px;
+        top: -39px;
+        @include anima('solid-trauma', 1, 1, 0, 0, 7s, ease-in-out, 0, 1, 5s);
+    }
+}
+.cont__cherry-sorry{
+    left: calc(#{$cross-height} / 2);
+    top: 50%;
+    .cherry-sorry{
+        width: 126px;
+        left: -55px;
+        top: 50%;
+        margin-top: -54px;
+        @include anima('cherry-sorry', 1, 1, 0, 0, 7s, ease-in-out, 0, 1, 5s);
+    }
+}
+.cont__host-bodies{
+    left: 50%;
+    bottom: calc(#{$cross-height} / 2);
+    .host-bodies{
+        width: 82px;
+        bottom: -23px;
+        left: 50%;
+        margin-left: -40px;
+        @include anima('host-bodies', 1, 1, 0, 0, 7s, ease-in-out, 0, 1, 6s);
+    }
+}
+
+.menu__solid-trauma, .menu__cherry-sorry, .menu__host-bodies{
+    position: relative; 
+    li{
+        position: absolute;
+        top: 0;
+        width: 0px;
+        height: 1px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        background-color: white;
+        opacity: 0.5;
+        transition: 2s;
+        transition-delay: calc(0.1s * var(--i));
+        &:hover{
+            transition: 0.5s;
+            opacity: 1;
+            box-shadow: 0 0 30px 5px white;
+        }
+        a{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 50px;
+            margin-top: -25px;
+            // border: 1px solid blue;
+        }
+    }
+}
+.menu__solid-trauma{
+    transform: rotate(-18deg);
+    li{
+        left: -248px;
+        transform-origin: 248px;
+        //   transform: rotate(90deg) translateX(248px);
+        transform: rotate(calc(360deg / 10 * var(--i)) ) translateX(0px);
+  }
+  &.active{
+    li{
+        width:100px;
+        transform: rotate(calc(360deg / 10 * var(--i)) ) translateX(0px);
+    }
+  }
+}
+.menu__cherry-sorry{
+    transform: rotate(-67.5deg);
+    li{
+        left: -160px;
+        transform-origin: 160px;
+        // transform: rotate(0deg) translateX(160px);
+        transform: rotate(calc(180deg / 4 * var(--i)) ) translateX(0px);
+  }
+  &.active{
+    li{
+        width:100px;
+        transform: rotate(calc(180deg / 4 * var(--i)) ) translateX(0px);
+    }
+  }
+}
+.menu__host-bodies{
+    li{
+        left: -155px;
+        transform-origin: 155px;
+        //   transform: rotate(90deg) translateX(155px);
+        transform: rotate(calc(360deg / 3 * var(--i)) ) translateX(0px);
+  }
+  &.active{
+    li{
+        width: 75px;
+        transform: rotate(calc(360deg / 3 * var(--i)) ) translateX(0px);
+    }
+  }
+}
+
+//! ----------------
+
+#box {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    transition: all 1s ease; /* Smooth transition for any change */
+  }
+  
+  /* Class to be added via JavaScript for animation */
+  .animate {
+    width: 200px;
+    height: 200px;
+    background-color: blue !important;
+  }

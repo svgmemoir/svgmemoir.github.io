@@ -1,0 +1,342 @@
+body {
+  background-color: black;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  margin-top: -372px;
+  left: 50%;
+  margin-left: -372px;
+  width: 744px;
+  height: 744px;
+}
+.nav .gfx__cross {
+  width: 744px;
+  height: 744px;
+  opacity: 0;
+  animation: appear 2s ease-in-out forwards;
+  animation-delay: 0;
+}
+@keyframes appear {
+  from {
+    transform: rotate(0deg) scale(1);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.7;
+  }
+}
+.nav .gfx__circle-s {
+  width: 310px;
+  height: 310px;
+  position: absolute;
+  bottom: calc(-310px / 2 + 124px / 2);
+  left: 50%;
+  margin-left: calc(-310px / 2);
+  transform: scale(0);
+  animation: circle-s 5s ease-in-out forwards;
+  animation-delay: 3.5s;
+}
+@keyframes circle-s {
+  from {
+    transform: rotate(0deg) scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.7;
+  }
+}
+.nav .gfx__circle-w {
+  width: 319px;
+  height: 319px;
+  position: absolute;
+  top: 50%;
+  margin-top: calc(-319px / 2);
+  left: 0;
+  margin-left: calc(-319px / 2 + 124px / 2);
+  transform: scale(0);
+  animation: circle-w 5s ease-in-out forwards;
+  animation-delay: 2.5s;
+}
+@keyframes circle-w {
+  from {
+    transform: rotate(0deg) scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.7;
+  }
+}
+.nav .gfx__circle-n {
+  width: 496px;
+  height: 496px;
+  position: absolute;
+  top: calc(-496px / 2 + 124px / 2);
+  left: 50%;
+  margin-left: calc(-496px / 2);
+  transform: scale(0);
+  animation: circle-n 5s ease-in-out forwards;
+  animation-delay: 3s;
+}
+@keyframes circle-n {
+  from {
+    transform: rotate(0deg) scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.7;
+  }
+}
+.nav .gfx__hex {
+  width: 550px;
+  height: 620px;
+  position: absolute;
+  top: calc(124px / 2);
+  left: 50%;
+  margin-left: -275px;
+  opacity: 0;
+  animation: hex 3s ease-in-out forwards;
+  animation-delay: 1.5s;
+}
+@keyframes hex {
+  from {
+    transform: rotate(30deg) scale(1);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.7;
+  }
+}
+.nav .gfx__diamond {
+  width: 620px;
+  height: 620px;
+  position: absolute;
+  top: calc(124px / 2);
+  left: calc(124px / 2);
+  opacity: 0;
+  animation: diamond 3s ease-in-out forwards;
+  animation-delay: 1s;
+}
+@keyframes diamond {
+  from {
+    transform: rotate(-30deg) scale(1);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.7;
+  }
+}
+.nav .gfx__triangle {
+  width: 550px;
+  height: 465px;
+  position: absolute;
+  top: calc(124px / 2);
+  left: 50%;
+  margin-left: -275px;
+  opacity: 0;
+  animation: triangle 3s ease-in-out forwards;
+  animation-delay: 2s;
+}
+@keyframes triangle {
+  from {
+    transform: rotate(10deg) scale(1);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.7;
+  }
+}
+
+.gfx__logo {
+  position: absolute;
+  top: 500px;
+  right: calc(-257px + 124px / 2);
+  width: 257px;
+  opacity: 0;
+  animation: logo 5s ease-in-out forwards;
+  animation-delay: 5s;
+}
+@keyframes logo {
+  from {
+    transform: rotate(0deg) scale(1);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+.cont__solid-trauma, .cont__cherry-sorry, .cont__host-bodies {
+  position: absolute;
+}
+
+.solid-trauma, .cherry-sorry, .host-bodies {
+  position: absolute;
+  opacity: 0;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.cont__solid-trauma {
+  left: 50%;
+  top: calc(124px / 2);
+}
+.cont__solid-trauma .solid-trauma {
+  width: 150px;
+  left: 50%;
+  margin-left: -75px;
+  top: -39px;
+  animation: solid-trauma 7s ease-in-out forwards;
+  animation-delay: 5s;
+}
+@keyframes solid-trauma {
+  from {
+    transform: rotate(0deg) scale(1);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+.cont__cherry-sorry {
+  left: calc(124px / 2);
+  top: 50%;
+}
+.cont__cherry-sorry .cherry-sorry {
+  width: 126px;
+  left: -55px;
+  top: 50%;
+  margin-top: -54px;
+  animation: cherry-sorry 7s ease-in-out forwards;
+  animation-delay: 5s;
+}
+@keyframes cherry-sorry {
+  from {
+    transform: rotate(0deg) scale(1);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+.cont__host-bodies {
+  left: 50%;
+  bottom: calc(124px / 2);
+}
+.cont__host-bodies .host-bodies {
+  width: 82px;
+  bottom: -23px;
+  left: 50%;
+  margin-left: -40px;
+  animation: host-bodies 7s ease-in-out forwards;
+  animation-delay: 6s;
+}
+@keyframes host-bodies {
+  from {
+    transform: rotate(0deg) scale(1);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+.menu__solid-trauma, .menu__cherry-sorry, .menu__host-bodies {
+  position: relative;
+}
+.menu__solid-trauma li, .menu__cherry-sorry li, .menu__host-bodies li {
+  position: absolute;
+  top: 0;
+  width: 0px;
+  height: 1px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  background-color: white;
+  opacity: 0.5;
+  transition: 2s;
+  transition-delay: calc(0.1s * var(--i));
+}
+.menu__solid-trauma li:hover, .menu__cherry-sorry li:hover, .menu__host-bodies li:hover {
+  transition: 0.5s;
+  opacity: 1;
+  box-shadow: 0 0 30px 5px white;
+}
+.menu__solid-trauma li a, .menu__cherry-sorry li a, .menu__host-bodies li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  margin-top: -25px;
+}
+
+.menu__solid-trauma {
+  transform: rotate(-18deg);
+}
+.menu__solid-trauma li {
+  left: -248px;
+  transform-origin: 248px;
+  transform: rotate(calc(36deg * var(--i))) translateX(0px);
+}
+.menu__solid-trauma.active li {
+  width: 100px;
+  transform: rotate(calc(36deg * var(--i))) translateX(0px);
+}
+
+.menu__cherry-sorry {
+  transform: rotate(-67.5deg);
+}
+.menu__cherry-sorry li {
+  left: -160px;
+  transform-origin: 160px;
+  transform: rotate(calc(45deg * var(--i))) translateX(0px);
+}
+.menu__cherry-sorry.active li {
+  width: 100px;
+  transform: rotate(calc(45deg * var(--i))) translateX(0px);
+}
+
+.menu__host-bodies li {
+  left: -155px;
+  transform-origin: 155px;
+  transform: rotate(calc(120deg * var(--i))) translateX(0px);
+}
+.menu__host-bodies.active li {
+  width: 75px;
+  transform: rotate(calc(120deg * var(--i))) translateX(0px);
+}
+
+#box {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  transition: all 1s ease; /* Smooth transition for any change */
+}
+
+/* Class to be added via JavaScript for animation */
+.animate {
+  width: 200px;
+  height: 200px;
+  background-color: blue !important;
+}/*# sourceMappingURL=style-alt.css.map */
